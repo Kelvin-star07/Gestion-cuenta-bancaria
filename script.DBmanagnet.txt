@@ -1,0 +1,20 @@
+create database usuario;
+
+use  usuario;
+
+
+
+create table carreras(
+id int not null primary key identity,
+carrera varchar(50) not null unique
+)
+
+-- se crea primero la tabla carreras
+create table RegistroUsuarios(
+id int not null primary key identity,
+NombreCompleto varchar(100),
+correo varchar(50) not null unique,
+contraseña varchar(8) not null unique,
+idCarrera int not null,
+foreign key(idCarrera) references carreras(id)
+)
